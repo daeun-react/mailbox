@@ -1,0 +1,33 @@
+.btn_darkmode {
+  display: block;
+  position: absolute;
+  bottom: 60px;
+  right: 60px;
+  background: #222;
+  border-radius: 30px;
+  cursor: pointer;
+  width: 60px;
+  height: 30px;
+  text-indent: -9999px;
+  z-index: 9999;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 10px;
+    transition: left 0.3s, transform 0.3s;
+  }
+
+  &.btn_light {
+    background: #777;
+    &:after {
+      left: calc(100% - 5px);
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+}

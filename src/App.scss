@@ -1,0 +1,57 @@
+@charset "utf-8";
+$font: "Roboto", sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  &.mode_dark {
+    background: black;
+  }
+}
+
+.mail_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100vw;
+  height: 100vh;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  .mail_container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: calc(100% - 200px);
+    height: 100%;
+  }
+}
