@@ -1,9 +1,16 @@
 import axios from "axios";
 
 export const getList = async () => {
-  const response = await axios.get(`${process.env.REACT_APP_API_URL}/mails`);
-  return response.data;
+  if (process.env.NODE_ENV === "development") {
+    const response = await axios.get(`${process.env.REACT_APP_API_URL}/mails`);
+    return response.data;
+  } else {
+    const response = await axios.get(`${process.env.REACT_APP_API_URL}`);
+    // console.log(response.data.mails);
+    return response.data.mails;
+  }
 };
+
 export const getListById = async (id) => {
   const response = await axios.get(
     `${process.env.REACT_APP_API_URL}/mails/${id}`
