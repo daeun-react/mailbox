@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/mailbox/static/css/main.c0ad4afa.chunk.css",
-    "main.js": "/mailbox/static/js/main.91d79df0.chunk.js",
-    "main.js.map": "/mailbox/static/js/main.91d79df0.chunk.js.map",
+    "main.js": "/mailbox/static/js/main.59655467.chunk.js",
+    "main.js.map": "/mailbox/static/js/main.59655467.chunk.js.map",
     "runtime-main.js": "/mailbox/static/js/runtime-main.990f558a.js",
     "runtime-main.js.map": "/mailbox/static/js/runtime-main.990f558a.js.map",
     "static/js/2.1e7aff51.chunk.js": "/mailbox/static/js/2.1e7aff51.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.990f558a.js",
     "static/js/2.1e7aff51.chunk.js",
     "static/css/main.c0ad4afa.chunk.css",
-    "static/js/main.91d79df0.chunk.js"
+    "static/js/main.59655467.chunk.js"
   ]
 }
