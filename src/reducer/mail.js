@@ -1,4 +1,4 @@
-import produce from "immer";
+import { enableES5, produce } from "immer";
 import { createAction, handleActions } from "redux-actions";
 import { call, put, takeEvery } from "@redux-saga/core/effects";
 import { getList } from "api/axios";
@@ -49,26 +49,32 @@ const initialState = {
   },
 };
 
+const produceImmer = (...args) => {
+  enableES5();
+  return produce(...args);
+};
+
 /**
  * Reducer
  */
+
 const mail = handleActions(
   {
     [SET_SECTION]: (state, { payload: section }) =>
-      produce(state, (draft) => {
+      produceImmer(state, (draft) => {
         draft.section = section;
         draft.selectedId = draft.items.data.findIndex((item) => item.section === section) + 1;
       }),
 
     [SET_READ]: (state, { payload: id }) =>
-      produce(state, (draft) => {
+      produceImmer(state, (draft) => {
         const index = draft.items.data.findIndex((item) => item.id === id);
         draft.items.data[index].read = true;
         draft.selectedId = id;
       }),
 
     [SET_DELETE]: (state, { payload: id }) =>
-      produce(state, (draft) => {
+      produceImmer(state, (draft) => {
         // trash 로 변경
         const index = draft.items.data.findIndex((item) => item.id === id);
         draft.items.data[index].section = "trash";
@@ -88,15 +94,15 @@ const mail = handleActions(
       }),
 
     [GET_ITMES]: (state, action) =>
-      produce(state, (draft) => {
+      produceImmer(state, (draft) => {
         draft.items = { loading: true, data: null, failure: null };
       }),
     [GET_ITEMS_SUCCESS]: (state, { payload }) =>
-      produce(state, (draft) => {
+      produceImmer(state, (draft) => {
         draft.items = { loading: false, data: payload, failure: null };
       }),
     [GET_ITEMS_FAILURE]: (state, { payload }) =>
-      produce(state, (draft) => {
+      produceImmer(state, (draft) => {
         draft.items = { loading: false, data: null, failure: payload };
       }),
   },
