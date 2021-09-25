@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import classNames from "classnames";
 import { FiTrash2 } from "react-icons/fi";
 import { ThemeContext } from "context/ColorContext";
+import { THEME } from "utils/constants";
 
 function MailView({ selectedItem, onGotoTrash }) {
   const { id, title, from, time, msg, section } = selectedItem;
@@ -11,8 +12,8 @@ function MailView({ selectedItem, onGotoTrash }) {
     <div
       className={classNames(
         "mail_view",
-        { theme_light: state.theme === "light" },
-        { theme_dark: state.theme === "dark" }
+        { theme_light: state.theme === THEME.LIGHT_MODE },
+        { theme_dark: state.theme === THEME.DARK_MODE }
       )}>
       <div className={`mail_view_header`}>
         <h3 className="mail_view_title">{title}</h3>

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setRead } from "reducer/mail";
 import classNames from "classnames";
 import { ThemeContext } from "context/ColorContext";
+import { THEME } from "utils/constants";
 
 function MailItem({ id, read, title, from, time }) {
   const dispatch = useDispatch();
@@ -27,8 +28,8 @@ function MailItem({ id, read, title, from, time }) {
       className={classNames(
         "mail_items",
         { selected: id === selectedId },
-        { theme_light: state.theme === "light" },
-        { theme_dark: state.theme === "dark" }
+        { theme_light: state.theme === THEME.LIGHT_MODE },
+        { theme_dark: state.theme === THEME.DARK_MODE }
       )}
       onClick={() => {
         dispatch(setRead(id));
