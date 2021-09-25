@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import classNames from "classnames";
 import { FiTrash2 } from "react-icons/fi";
 import { ThemeContext } from "context/ColorContext";
-import { THEME } from "utils/constants";
+import { STATUS, THEME } from "utils/constants";
 
 function MailView({ selectedItem, onGotoTrash }) {
   const { id, title, from, time, msg, section } = selectedItem;
@@ -17,7 +17,9 @@ function MailView({ selectedItem, onGotoTrash }) {
       )}>
       <div className={`mail_view_header`}>
         <h3 className="mail_view_title">{title}</h3>
-        {section !== "trash" && <FiTrash2 className="btn_delete" onClick={() => onGotoTrash(id)} />}
+        {section !== STATUS.TRASH && (
+          <FiTrash2 className="btn_delete" onClick={() => onGotoTrash(id)} />
+        )}
         <div className="mail_sub">
           <div className="mail_view_from">{from}</div>
           <div className="mail_view_time">{time}</div>

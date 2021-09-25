@@ -2,6 +2,7 @@ import { enableES5, produce } from "immer";
 import { createAction, handleActions } from "redux-actions";
 import { call, put, takeEvery } from "@redux-saga/core/effects";
 import { getList } from "api/axios";
+import { STATUS } from "utils/constants";
 
 /**
  * Action Type
@@ -41,7 +42,7 @@ export function* watchItems() {
  */
 const initialState = {
   selectedId: 1,
-  section: "inbox",
+  section: STATUS.MAIL,
   items: {
     loading: false,
     data: [],
@@ -77,11 +78,11 @@ const mail = handleActions(
       produceImmer(state, (draft) => {
         // trash 로 변경
         const index = draft.items.data.findIndex((item) => item.id === id);
-        draft.items.data[index].section = "trash";
+        draft.items.data[index].section = STATUS.TRASH;
 
         // selectedId 변경
         const nextIndex = state.items.data.findIndex(
-          (item) => item.section === "inbox" && item.id !== id
+          (item) => item.section === STATUS.MAIL && item.id !== id
         );
 
         if (nextIndex > -1) {
