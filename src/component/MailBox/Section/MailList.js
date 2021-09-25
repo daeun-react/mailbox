@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React, { useContext } from "react";
-import { ThemeContext } from "../../../context/ColorContext";
-import MailItem from "./MailItem";
+import { ThemeContext } from "context/ColorContext";
+import { MailItem } from "component/MailBox/Section";
 
 function MailList({ data, section }) {
   const { state } = useContext(ThemeContext);
@@ -10,8 +10,7 @@ function MailList({ data, section }) {
     <div
       className={classNames("mail_list", {
         theme_dark: state.theme === "dark",
-      })}
-    >
+      })}>
       {data
         .filter((item) => item.section === section)
         .map((mail) => (

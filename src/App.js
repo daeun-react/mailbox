@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from "react";
-import MailBox from "./component/MailBox/MailBox";
-import Switch from "./component/Switch/Switch";
-import "./App.scss";
-import { ThemeContext } from "./context/ColorContext";
+import { ThemeContext } from "context/ColorContext";
+import MailBox from "component/MailBox/MailBox";
+import Switch from "component/Switch/Switch";
+import "App.scss";
 
 function App() {
   const { dispatch } = useContext(ThemeContext);

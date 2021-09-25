@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
-import MailBar from "./Section/MailBar";
-import MailList from "./Section/MailList";
-import MailView from "./Section/MailView";
-import "./MailBox.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { getItems, setDelete, setSection } from "../../reducer/mail";
+import { getItems, setDelete, setSection } from "reducer/mail";
+import { MailBar, MailList, MailView } from "component/MailBox/Section";
+import "component/MailBox/MailBox.scss";
 
 function MailBox() {
   const { selectedId, section, items } = useSelector((state) => state.mail);
@@ -24,11 +22,7 @@ function MailBox() {
 
   return (
     <>
-      <MailBar
-        data={items.data}
-        section={section}
-        onSectionChange={onSectionChange}
-      />
+      <MailBar data={items.data} section={section} onSectionChange={onSectionChange} />
       <div className="mail_container">
         <MailList data={items.data} section={section} />
         {ItemById.length === 0 ? (

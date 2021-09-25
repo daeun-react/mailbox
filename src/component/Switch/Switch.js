@@ -1,15 +1,13 @@
 import React, { useContext } from "react";
-import { ThemeContext } from "../../context/ColorContext";
 import classNames from "classnames";
-import "./Switch.scss";
+import { ThemeContext } from "context/ColorContext";
+import "component/Switch/Switch.scss";
 
 function Switch() {
   const { state, dispatch } = useContext(ThemeContext);
 
   const changeMode = () => {
-    state.theme === "light"
-      ? dispatch({ type: "DARK_MODE" })
-      : dispatch({ type: "LIGNT_MODE" });
+    state.theme === "light" ? dispatch({ type: "DARK_MODE" }) : dispatch({ type: "LIGNT_MODE" });
   };
 
   return (
@@ -18,8 +16,7 @@ function Switch() {
       className={classNames("btn_darkmode", {
         btn_light: state.theme === "light",
       })}
-      onClick={changeMode}
-    >
+      onClick={changeMode}>
       BUTTON
     </button>
   );

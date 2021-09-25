@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import { all } from "redux-saga/effects";
-import mail, { watchItems } from "./mail";
+import mail, { watchItems } from "reducer/mail";
 
 const rootReducer = combineReducers({ mail });
 

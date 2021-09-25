@@ -1,7 +1,7 @@
-import { call, put, takeEvery } from "@redux-saga/core/effects";
 import produce from "immer";
 import { createAction, handleActions } from "redux-actions";
-import { getList } from "../api/axios";
+import { call, put, takeEvery } from "@redux-saga/core/effects";
+import { getList } from "api/axios";
 
 /**
  * Action Type
@@ -57,8 +57,7 @@ const mail = handleActions(
     [SET_SECTION]: (state, { payload: section }) =>
       produce(state, (draft) => {
         draft.section = section;
-        draft.selectedId =
-          draft.items.data.findIndex((item) => item.section === section) + 1;
+        draft.selectedId = draft.items.data.findIndex((item) => item.section === section) + 1;
       }),
 
     [SET_READ]: (state, { payload: id }) =>

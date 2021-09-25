@@ -1,6 +1,6 @@
 import React from "react";
-import { FiMail, FiTrash2 } from "react-icons/fi";
 import classNames from "classnames";
+import { FiMail, FiTrash2 } from "react-icons/fi";
 
 function MailBar({ data, section, onSectionChange }) {
   const notReadMailCount = data.filter(
@@ -15,10 +15,7 @@ function MailBar({ data, section, onSectionChange }) {
     <aside className="sidebar">
       <ul className="sidebar_container">
         <li onClick={() => onSectionChange("inbox")}>
-          <button
-            type="button"
-            className={classNames({ active: section === "inbox" })}
-          >
+          <button type="button" className={classNames({ active: section === "inbox" })}>
             <span>
               <FiMail />
               <span> 받은 메일함 </span>
@@ -28,10 +25,7 @@ function MailBar({ data, section, onSectionChange }) {
         </li>
 
         <li onClick={() => onSectionChange("trash")}>
-          <button
-            type="button"
-            className={classNames({ active: section === "trash" })}
-          >
+          <button type="button" className={classNames({ active: section === "trash" })}>
             <span>
               <FiTrash2 />
               <span> 지운 메일함 </span>

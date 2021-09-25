@@ -1,8 +1,8 @@
-import classNames from "classnames";
 import React, { useContext, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ThemeContext } from "../../../context/ColorContext";
-import { setRead } from "../../../reducer/mail";
+import { setRead } from "reducer/mail";
+import classNames from "classnames";
+import { ThemeContext } from "context/ColorContext";
 
 function MailItem({ id, read, title, from, time }) {
   const dispatch = useDispatch();
@@ -33,8 +33,7 @@ function MailItem({ id, read, title, from, time }) {
       onClick={() => {
         dispatch(setRead(id));
       }}
-      ref={selectedItemRef}
-    >
+      ref={selectedItemRef}>
       <div className="mail_items_trunc" data-read={read}></div>
       <div className="mail_items_title trunc">{title}</div>
       <div className="mail_items_sub">
