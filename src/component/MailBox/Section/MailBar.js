@@ -8,9 +8,7 @@ function MailBar({ data, section, onSectionChange }) {
     (item) => item.section === STATUS.MAIL && item.read === "false"
   ).length;
 
-  const notReadTrashCount = data.filter(
-    (item) => item.section === STATUS.TRASH && item.read === "false"
-  ).length;
+  const notReadTrashCount = data.filter((item) => item.section === STATUS.TRASH).length;
 
   return (
     <aside className="sidebar">
